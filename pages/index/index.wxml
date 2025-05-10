@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="header">
+  <view class="header-text">
+    <text>{{date}}</text>
+    <text>{{weekday}}</text>
+    <text>{{traditionalDay}}</text>
+  </view>
+</view>
+
+<van-row class="main">
+  <view class="main-editor">
+    <custom-editor id="editor" editorHeight="{{editorHeight}}" bind:editorReady="initEditorContent"></custom-editor>
+  </view>
+  <view class="main-button">
+    <view class="image-list">
+      <!-- 动态显示图片缩略图 -->
+      <block wx:for="{{photos}}" wx:key="*this" wx:for-index="index">
+        <view class="thumbnail-container">
+          <image src="{{item}}" mode="aspectFill" class="thumbnail"></image>
+          <view class="delete-icon" catchtap="removePhoto" data-index="{{index}}">
+            <van-icon name="cross" size="16px" color="#fff" />
+          </view>
+        </view>
+      </block>
+      <view class="upload-image-box" bindtap="uploadPhoto">
+        <van-icon name="add-o" class="upload-image-icon" size="50rpx"/>
+        <text class="upload-image-text">添加照片</text>
+      </view>
+    </view>
+    <view class="location" bindtap="chooseLocation">
+      <van-icon name="location-o" />
+      <text>选择的地址: {{address}}</text>
+    </view>
+    <van-button class="commit-btn" square block type="primary" color="black" bind:click="saveDataToServer">提交保存</van-button>
+  </view>
+</van-row>
+
+<view class="footer">
+  <custom-tabbar active="{{pageIndex}}" bind:beforeChange="onTabChange"></custom-tabbar>
+</view>

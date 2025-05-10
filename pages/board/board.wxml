@@ -1,0 +1,3 @@
+<!--pages/board/board.wxml-->
+<text>pages/board/board.wxml</text>
+<custom-tabbar active="1"></custom-tabbar>

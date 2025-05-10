@@ -1,0 +1,131 @@
+/**index.wxss**/
+
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 让整个页面占满高度 */
+}
+
+.header {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 50rpx; /* 设置合适的高度 */
+}
+
+.header-text {
+  display: flex;
+  padding-left: 33rpx;
+  flex: 1; /* 占满父容器 */
+  justify-content: space-around; /* 均分子元素的间距 */
+}
+
+.header-text text {
+  flex: 1; /* 每个文本均分宽度 */
+}
+
+
+.main {
+  display: flex;
+  position: relative;
+  flex-direction: column; /* 垂直排列子元素 */
+  overflow: auto;
+  padding: 20rpx;
+  height: 100%;
+  /* background-color: green; */
+}
+
+.main-editor {
+  background-color: grey;
+}
+
+.main-button {
+  position: relative;
+  top: 40rpx;
+  height: 300rpx;
+  margin-top: auto; /* 将按钮推到父容器的底部 */
+  /* background-color: khaki; */
+}
+
+.commit-btn {
+  position: relative;
+  top: 70rpx;
+}
+
+.location {
+  position: relative;
+  top: 20rpx;
+  font-size: 24rpx; /* 设置较小的字体大小 */
+  color: #666; /* 可选：设置字体颜色 */
+}
+
+.footer {
+  padding: 20rpx;
+  background-color: #fff;
+  box-shadow: 0 -1rpx 6rpx rgba(0, 0, 0, 0.05);
+}
+
+
+.thumbnail-container {
+  flex: 0 0 auto; /* 不伸缩，保持自身大小 */
+  position: relative;
+  display: inline-block;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.thumbnail {
+  margin: 10rpx;
+  width: 100rpx; 
+  height: 100rpx;
+  border-radius: 8rpx;
+}
+
+.delete-icon {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background-color:rgb(148, 144, 144);
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+}
+
+.image-list {
+  display: flex;
+  /* height: 150rpx; */
+  flex-wrap: warp;
+  width: 100%;
+}
+
+.upload-image-box {
+  margin: 10rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  border: 1rpx solid #ccc; /* 浅灰色边框 */
+}
+
+.upload-image-icon {
+  width: 100rpx;
+  height: 100rpx;
+  /* position: relative;
+  top: 10rpx; */
+}
+
+.upload-image-text {
+  width: 100rpx;
+  height: 30rpx;
+  position: relative;
+  top: -5rpx;
+  font-size: 24rpx; /* 设置较小的字体大小 */
+  color: #666; /* 可选：设置字体颜色 */
+  text-align: center;
+}

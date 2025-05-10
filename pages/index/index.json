@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "写日记",
+  "usingComponents": {
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-field": "@vant/weapp/field/index",
+    "custom-editor": "/components/custom-editor/editor",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

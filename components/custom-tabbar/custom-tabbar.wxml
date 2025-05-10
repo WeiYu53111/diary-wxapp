@@ -1,0 +1,4 @@
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="home-o">写日记</van-tabbar-item>
+  <van-tabbar-item icon="user-o">我的日记</van-tabbar-item>
+</van-tabbar>

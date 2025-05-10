@@ -1,0 +1,92 @@
+<!--pages/myself/myself.wxml-->
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}"></image>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickName || '微信用户'}}</text>
+      <view class="stats">
+        <text class="diary-count">{{diaryList.length || 0}} 篇日记</text>
+        <text class="register-time">注册于 {{registerDate || '2025-05-08'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日记列表区域 -->
+  <view class="diary-timeline">
+    <view class="timeline-header">
+      <text class="header-title">我的日记</text>
+    </view>
+    
+    <!-- 日记列表 -->
+    <block wx:if="{{diaryList.length > 0}}">
+      <view class="diary-item" wx:for="{{diaryList}}" wx:key="diaryId">
+        <!-- 日记日期和时间 -->
+        <view class="diary-header">
+          <view class="diary-date">
+            <text class="date">{{item.logTime}}</text>
+            <text class="weekday">{{item.logWeek}}</text>
+            <text class="lunar" wx:if="{{item.logLunar}}">{{item.logLunar}}</text>
+          </view>
+          <view class="diary-actions">
+            <!-- <view class="action-btn edit" bindtap="editDiary" data-id="{{item.diaryId}}">编辑</view> -->
+            <view class="action-btn delete" bindtap="deleteDiary" data-id="{{item.diaryId}}" data-createyear="{{item.createYear}}">删除</view>
+          </view>
+        </view>
+
+        <!-- 日记内容 -->
+        <view class="diary-content" bindtap="viewDiary" data-id="{{item.diaryId}}">
+          <!-- 简短内容预览 -->
+          <rich-text class="content-preview" nodes="{{item.contentPreview}}"></rich-text>
+          
+          <!-- 图片预览 -->
+          <view class="image-preview" wx:if="{{item.images && item.images.length > 0}}">
+            <image 
+              wx:for="{{item.images}}" 
+              wx:for-item="img" 
+              wx:key="index" 
+              src="{{img}}" 
+              mode="aspectFill" 
+              bindtap="previewImage" 
+              data-urls="{{item.images}}" 
+              data-current="{{img}}"
+            ></image>
+          </view>
+        </view>
+        
+        <!-- 日记底部信息 -->
+        <view class="diary-footer">
+          <text class="create-time">{{item.createTimeFormatted}}</text>
+          <view class="location" wx:if="{{item.address}}">
+                       <van-icon name="location-o" class="location-icon"/>
+                      <text>{{item.address}}</text>
+          </view>
+
+        </view>
+      </view>
+    </block>
+    
+    <!-- 无日记提示 -->
+    <view class="empty-diary" wx:else>
+      <image src="/images/empty.png"></image>
+      <text>还没有创建日记~</text>
+      <button class="create-btn" bindtap="navigateToCreate">写日记</button>
+    </view>
+  </view>
+  
+  <!-- 加载更多 -->
+  <view class="load-more" wx:if="{{hasMoreDiary && diaryList.length > 0}}">
+    <text wx:if="{{isLoading}}">正在加载...</text>
+    <text wx:else bindtap="loadMoreDiary">加载更多</text>
+  </view>
+</view>
+
+<!-- 悬浮按钮 - 新建日记 -->
+<!-- <view class="float-btn" bindtap="navigateToCreate">
+  <image src="/images/add.png"></image>
+</view> -->
+
+<!-- 底部导航栏 -->
+<view class="footer">
+  <custom-tabbar active="1"></custom-tabbar>
+</view>
