@@ -19,7 +19,8 @@ page {
   width: 90%;
   background-color: #ffffff;
   margin-bottom: 20rpx;
-  border-radius: 0 0 20rpx 20rpx;
+  margin-top: 20rpx;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
 }
 
@@ -62,7 +63,7 @@ page {
   font-size: 32rpx;
   font-weight: bold;
   background-color: #fff;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
   border-bottom: 1px solid #eee;
 }
 
@@ -130,7 +131,7 @@ page {
 .content-preview {
   font-size: 28rpx;
   line-height: 1.6;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
